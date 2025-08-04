@@ -1,5 +1,8 @@
 # Final Portfolio – Cloud Fullstack Deployment
 
+<img width="960" height="437" alt="image" src="https://github.com/user-attachments/assets/39af2d6f-4e67-4937-a65c-7a61854dd43e" />
+
+
 ## 🧩 Deskripsi Project
 Portofolio personal berbasis **Next.js + React Three Fiber**. Dideploy ke AWS EC2 dan dikonfigurasi dengan Nginx sebagai reverse proxy serta PM2 untuk menjalankan server secara stabil. Proyek ini dilengkapi CI/CD, monitoring, dan simulasi autoscaling manual.
 
