@@ -8,7 +8,7 @@ import {
 
 export const icons = [
   {
-    path: "https://github.com/adamsnows",
+    path: "https://github.com/hazzikri",
     name: <RiGithubFill />,
     title: "Github",
   },
@@ -28,7 +28,7 @@ export const icons = [
     title: "X",
   },
   {
-    path: "https://www.linkedin.com/in/adam-neves",
+    path: "https://www.linkedin.com/in/hazzikri",
     name: <RiLinkedinFill />,
     title: "Linkedin",
   },
