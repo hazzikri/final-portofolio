@@ -11,14 +11,14 @@ export const reviewsData = [
     name: "Tsunode (Gabriel Tsunoda)",
     job: "Software Developer",
     review:
-      "Adam is an excellent professional and I can say this with complete authority, as I had the pleasure of leading him during his experience as a front-end monitor at Kenzie Academy.\n\nBeyond the technical skills that he acquired with ease, I highlight his passion for the community, for helping people, and his enormous desire to create something, a talent.\n\nAdam created a community named 'The Champions', and has been helping people ever since. I must highlight the period when I was his instructor, and the project group he was part of surprised us with an incredible project, using technologies beyond what we had taught, clearly showing their proactivity and thirst for learning.\n\nWell, if you've read this far, I believe that at this moment you're already calling Adam for a chat, to invite him to join your team, I wouldn't miss it for anything!",
+      "Hafidz Azzikri is an excellent professional and I can say this with complete authority, as I had the pleasure of leading him during his experience as a front-end monitor at Kenzie Academy.\n\nBeyond the technical skills that he acquired with ease, I highlight his passion for the community, for helping people, and his enormous desire to create something, a talent.\n\nHafidz created a community named 'The Champions', and has been helping people ever since. I must highlight the period when I was his instructor, and the project group he was part of surprised us with an incredible project, using technologies beyond what we had taught, clearly showing their proactivity and thirst for learning.\n\nWell, if you've read this far, I believe that at this moment you're already calling Hafidz for a chat, to invite him to join your team, I wouldn't miss it for anything!",
   },
   {
     avatar: "/people/jose.jpeg",
     name: "José Cássio",
     job: "Software Developer @Super Megavendas",
     review:
-      "I had the privilege of having Adam as my tech leader, managing to transmit knowledge that I will certainly carry throughout my journey. I gained a lot of knowledge while working by his side and will be eternally grateful for that. There was never a problem complicated enough that didn't have a solution. 'Nothing is impossible, you just have to want it'.",
+      "I had the privilege of having Hafidz as my tech leader, managing to transmit knowledge that I will certainly carry throughout my journey. I gained a lot of knowledge while working by his side and will be eternally grateful for that. There was never a problem complicated enough that didn't have a solution. 'Nothing is impossible, you just have to want it'.",
   },
 
   {
@@ -33,7 +33,7 @@ export const reviewsData = [
     name: "Vagner Mengali",
     job: "Software Developer",
     review:
-      "Adam is an exceptional developer. He has always demonstrated remarkable technical skills, excelling in programming logic and staying up-to-date with the latest trends.\n\nHis proactivity and willingness to help colleagues are evident, contributing to continuous improvements in team processes. Adam is not only a talented professional but also an exemplary team member, with notable interpersonal skills that create a positive work environment.\n\nHis expertise in User Experience (UX) has resulted in intuitive and pleasant interfaces in our projects. In summary, Adam is a valuable addition to any development team, and I am confident that he will continue to have a positive impact on his future professional challenges.",
+      "Hafidz Azzikri is an exceptional developer. He has always demonstrated remarkable technical skills, excelling in programming logic and staying up-to-date with the latest trends.\n\nHis proactivity and willingness to help colleagues are evident, contributing to continuous improvements in team processes. Hafidz is not only a talented professional but also an exemplary team member, with notable interpersonal skills that create a positive work environment.\n\nHis expertise in User Experience (UX) has resulted in intuitive and pleasant interfaces in our projects. In summary, Hafidz is a valuable addition to any development team, and I am confident that he will continue to have a positive impact on his future professional challenges.",
   },
   {
     avatar: "/people/luiz.jpeg",
@@ -47,7 +47,7 @@ export const reviewsData = [
     name: "Axel Lima",
     job: "Software Developer",
     review:
-      "I had the opportunity to study and work with the excellent professional and person that Adam Neves is. Despite the jokes and moments of relaxation, Adam is an extremely capable professional and definitely a natural leader, his way of uniting the team and maintaining organization is precisely what impresses the most! Besides demonstrating crucial skills for an excellent developer as he is, showing great ease in problem-solving and proactivity! I firmly believe that Adam stands out in everything he sets out to do and that within any company he is/will be a piece of great importance!",
+      "I had the opportunity to study and work with the excellent professional and person that Hafidz Azzikri is. Despite the jokes and moments of relaxation, Hafidz is an extremely capable professional and definitely a natural leader, his way of uniting the team and maintaining organization is precisely what impresses the most! Besides demonstrating crucial skills for an excellent developer as he is, showing great ease in problem-solving and proactivity! I firmly believe that Hafidz stands out in everything he sets out to do and that within any company he is/will be a piece of great importance!",
   },
   {
     avatar: "/people/giuseppe.jpeg",
