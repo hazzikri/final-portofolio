@@ -6,7 +6,7 @@
   },
   "home": {
     "hero": {
-      "greeting": "Hi, I'm Adam Neves",
+      "greeting": "Hi, I'm Hafidz Azzikri",
       "title": "Full Stack Developer",
       "subtitle": "TypeScript & Python",
       "cta": "Contact me"
@@ -53,7 +53,7 @@
     }
   },
   "footer": {
-    "copyright": "© 2025 Adam Neves. All rights reserved."
+    "copyright": "© 2025 Hafidz Azzikri. All rights reserved."
   },
   "whatsapp": {
     "message": "Hello! I saw your portfolio and would like to talk."
