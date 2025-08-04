@@ -5,6 +5,7 @@ Portofolio personal berbasis **Next.js + React Three Fiber**. Dideploy ke AWS EC
 
 ## 🚀 Live App
 👉 http://52.221.244.177/ 
+Next project akan di deploy ke azzikri.cloud
 
 ## 📦 Teknologi yang Digunakan
 - Next.js 14
