@@ -1,0 +1,33 @@
+{
+  "version": 2,
+  "buildCommand": "npm run build",
+  "installCommand": "npm install --legacy-peer-deps && npm install --save-dev critters",
+  "framework": "nextjs",
+  "outputDirectory": ".next",
+  "github": {
+    "silent": true
+  },
+  "headers": [
+    {
+      "source": "/api/wakatime(.*)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "no-cache, no-store, must-revalidate, max-age=0, s-maxage=0"
+        },
+        {
+          "key": "Pragma",
+          "value": "no-cache"
+        },
+        {
+          "key": "Expires",
+          "value": "0"
+        },
+        {
+          "key": "Vary",
+          "value": "*"
+        }
+      ]
+    }
+  ]
+}

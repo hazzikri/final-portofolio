@@ -1,0 +1,77 @@
+{
+  "name": "Portfólio | Adam Neves",
+  "short_name": "Portfolio",
+  "description": "Portfólio pessoal de Adam Neves, mostrando seu trabalho e experiência.",
+  "author": "Adam Neves",
+  "lang": "pt-BR",
+  "theme_color": "#7a90ff",
+  "background_color": "#090a1a",
+  "display": "standalone",
+  "scope": "/",
+  "start_url": "/",
+  "icons": [
+    {
+      "src": "/ts.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    },
+    {
+      "src": "/ts.png",
+      "sizes": "32x32",
+      "type": "image/png",
+      "purpose": "maskable any"
+    },
+    {
+      "src": "/ts.png",
+      "sizes": "48x48",
+      "type": "image/png",
+      "purpose": "maskable any"
+    },
+    {
+      "src": "/ts.png",
+      "sizes": "96x96",
+      "type": "image/png",
+      "purpose": "maskable any"
+    },
+    {
+      "src": "/ts.png",
+      "sizes": "144x144",
+      "type": "image/png",
+      "purpose": "maskable any"
+    },
+    {
+      "src": "/ts.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable any"
+    }
+  ],
+  "related_applications": [
+    {
+      "platform": "web",
+      "url": "https://adamsnows.vercel.app/",
+      "id": "com.adamsnows.portfolio"
+    }
+  ],
+  "manifest_version": 3,
+  "permissions": ["notifications"],
+  "offline_enabled": true,
+  "routing": {
+    "dynamic": true,
+    "static": true
+  },
+  "i18n": {
+    "locales": {
+      "en": {
+        "name": "Portfolio | Adam Neves",
+        "description": "Personal portfolio of Adam Neves, showcasing his work and experience."
+      }
+    },
+    "default_locale": "pt-BR"
+  },
+  "navigation": {
+    "home": "/",
+    "projects": "/projects",
+    "contact": "/contact"
+  }
+}
