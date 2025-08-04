@@ -7,7 +7,7 @@
 Portofolio personal berbasis **Next.js + React Three Fiber**. Dideploy ke AWS EC2 dan dikonfigurasi dengan Nginx sebagai reverse proxy serta PM2 untuk menjalankan server secara stabil. Proyek ini dilengkapi CI/CD, monitoring, dan simulasi autoscaling manual.
 
 ## 🚀 Live App
-👉 http://52.221.244.177/ 
+👉 https://35.208.77.156/
 Next project akan di deploy ke azzikri.cloud
 
 ## 📦 Teknologi yang Digunakan
