@@ -45,7 +45,7 @@ const GithubActivity = () => {
 
         <div className="mx-auto">
           <GithubContributionsChart
-            username={process.env.NEXT_PUBLIC_GITHUB_USERNAME || "adamsnows"}
+            username={process.env.NEXT_PUBLIC_GITHUB_USERNAME || "hazzikri"}
           />
 
           {/* GitHub Sponsors Card */}
@@ -59,10 +59,10 @@ const GithubActivity = () => {
             <div className="relative rounded-lg overflow-hidden border border-primary/20 bg-background/50 backdrop-blur-sm p-1 w-full">
               <iframe
                 src={`https://github.com/sponsors/${
-                  process.env.NEXT_PUBLIC_GITHUB_USERNAME || "adamsnows"
+                  process.env.NEXT_PUBLIC_GITHUB_USERNAME || "hazzikri"
                 }/card`}
                 title={`Sponsor ${
-                  process.env.NEXT_PUBLIC_GITHUB_USERNAME || "adamsnows"
+                  process.env.NEXT_PUBLIC_GITHUB_USERNAME || "hazzikri"
                 }`}
                 className="rounded-md w-full block h-[305px]  md:h-[135px]"
                 style={{
@@ -87,7 +87,7 @@ const GithubActivity = () => {
 
           <div className="mt-6 text-center">
             <motion.a
-              href="https://github.com/adamsnows"
+              href="https://github.com/hazzikri"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 text-sm text-white/50 hover:text-primary transition-colors border border-primary/20 rounded-md px-4 py-2 hover:bg-primary/10"
