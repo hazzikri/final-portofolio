@@ -1,98 +1,70 @@
-# Final Portfolio – Cloud Fullstack Deployment
+# 3D Interactive Portfolio — Cloud Fullstack Deployment
 
-<img width="960" height="437" alt="image" src="https://github.com/user-attachments/assets/39af2d6f-4e67-4937-a65c-7a61854dd43e" />
+[![Next.js Web App](https://img.shields.io/badge/Web%20App-Next.js%2014-000000?style=for-the-badge&logo=nextdotjs)](https://hazzikri.github.io/final-portofolio/)
+[![React Three Fiber](https://img.shields.io/badge/3D%20Graphics-React%20Three%20Fiber-black?style=for-the-badge&logo=react)](https://docs.pmnd.rs/react-three-fiber/)
+[![AWS EC2](https://img.shields.io/badge/Infrastructure-AWS%20EC2-FF9900?style=for-the-badge&logo=amazon-aws)](https://aws.amazon.com/ec2/)
+[![CI/CD Pipelines](https://img.shields.io/badge/CI%20/_%20CD-GitHub%20Actions-2088FF?style=for-the-badge&logo=github-actions)](https://github.com/hazzikri/final-portofolio/actions)
 
+An interactive, 3D web application demonstrating personal portfolio showcases. Built using **Next.js 14** and **React Three Fiber (R3F)**, containerized, and deployed to an **AWS EC2** virtual server behind an **Nginx Reverse Proxy**.
 
-## 🧩 Deskripsi Project
-Portofolio personal berbasis **Next.js + React Three Fiber**. Dideploy ke AWS EC2 dan dikonfigurasi dengan Nginx sebagai reverse proxy serta PM2 untuk menjalankan server secara stabil. Proyek ini dilengkapi CI/CD, monitoring, dan simulasi autoscaling manual.
+---
 
-## 🚀 Live App
-👉 http://35.208.77.156/
+## 🎨 Interactive Preview
+👉 **Live Deployment:** http://35.208.77.156/ (Temporary Cloud IP)
 
-Next project akan di deploy ke azzikri.cloud
+---
 
-## 📦 Teknologi yang Digunakan
-- Next.js 14
-- React Three Fiber
-- Yarn
-- AWS EC2 (Ubuntu 22.04)
-- PM2
-- Nginx
-- GitHub Actions
+## 🛠️ Technology Stack
 
-## ⚙️ Deployment
-Project dijalankan di EC2 menggunakan PM2 dan reverse proxy oleh Nginx.
+* **Frontend Framework:** Next.js 14 (App Router)
+* **3D Components:** React Three Fiber & Three.js (WebGL rendering)
+* **Process Manager:** PM2 (Node.js daemon manager)
+* **Web Server & Reverse Proxy:** Nginx
+* **Infrastructure Host:** AWS EC2 Virtual Machine (Ubuntu Server)
+* **CI/CD Platform:** GitHub Actions
 
-### Perintah Manual:
+---
+
+## ⚙️ Deployment & Running Locally
+
+### Running Locally
+To launch the development server on your local machine:
 ```bash
+# Clone the repository
+git clone https://github.com/hazzikri/final-portofolio.git
+cd final-portofolio
+
+# Install dependencies & run dev
 yarn install
-yarn build
-yarn start
-````
+yarn dev
+```
 
-### Perintah Production:
-
+### Server Production Configuration
+To host the application persistently on a virtual machine (EC2):
 ```bash
-pm2 start yarn --name final-portfolio -- start
+# Build the production bundle
+yarn build
+
+# Start Next.js using PM2 daemon manager
+pm2 start yarn --name "final-portfolio" -- start
+
+# Save daemon state to survive system reboots
 pm2 save
 ```
 
-## 🔁 CI/CD
+---
 
-CI/CD otomatis menggunakan GitHub Actions:
+## 🔁 CI/CD Deployment Automation
 
-* Trigger: push ke `master`
-* Build project di GitHub
-* SSH ke EC2
-* Pull latest code
-* Restart dengan PM2
+Deployments are automated through a GitHub Actions pipeline defined in `.github/workflows/deploy.yml`:
+1. **Trigger Event:** Triggers on any commit pushed to the `master` branch.
+2. **Build Stage:** Installs dependencies and runs `yarn build` on the GitHub runner to verify compilation.
+3. **Deploy Stage:** Connects to the AWS EC2 container instance securely via SSH, pulls the latest commits, rebuilds, and restarts the PM2 process.
 
-📎 [GitHub Actions Workflow](https://github.com/hazzikri/final-portofolio/actions)
+---
 
-## 🔐 Keamanan
+## 🔒 Security Hardening
 
-* Secrets (seperti `.env.local`) tidak dimasukkan ke Git
-* Akses EC2 dibatasi lewat Security Group
-
-## 📈 Monitoring
-
-Monitoring menggunakan PM2 (`pm2 monit`, `pm2 logs`).
-
-📸 Screenshot:
-
-![PM2 Monitoring](/public/pm2-monitoring.png)
-
-## 📊 Simulasi Auto Scaling (Manual via CLI)
-
-Script autoscaling: akan menjalankan instance EC2 baru jika CPU usage > 90%
-
-📂 File: `scripts/auto-scale.sh`
-
-```bash
-#!/bin/bash
-
-CPU_THRESHOLD=90
-CPU_USAGE=$(top -bn1 | grep "Cpu(s)" | awk '{print $2 + $4}' | cut -d'.' -f1)
-
-echo "📊 CPU Usage saat ini: ${CPU_USAGE}%"
-
-if [ "$CPU_USAGE" -gt "$CPU_THRESHOLD" ]; then
-  echo "🔥 CPU usage > ${CPU_THRESHOLD}%. Memulai instance EC2 baru..."
-
-  aws ec2 run-instances \
-    --image-id ami-0abcdef1234567890 \
-    --count 1 \
-    --instance-type t3.micro \
-    --key-name my-key \
-    --security-groups my-security-group \
-    --tag-specifications 'ResourceType=instance,Tags=[{Key=Name,Value=autoscaled-instance}]'
-else
-  echo "✅ CPU usage normal. Tidak ada action."
-fi
-```
-
-> 💡 Kamu bisa menjalankan script ini di server atau integrasikan dengan CloudWatch untuk real autoscaling.
-
-## 📄 Lisensi
-
-Proyek ini dibuat untuk kebutuhan portofolio dan latihan DevOps.
+* **Environment Isolation:** Crucial API credentials and site metadata are stored strictly in `.env.local` variables, excluded from version control via `.gitignore`.
+* **Network Firewalls:** Inbound access via the EC2 Security Group is restricted solely to HTTP (Port `80`), HTTPS (Port `443`), and SSH (Port `22` restricted to trusted IPs).
+* **Nginx Reverse Proxy:** Shields the Next.js execution port (`3000`) from direct external traffic, managing system resource headers and client connections.
