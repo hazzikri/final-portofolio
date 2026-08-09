@@ -59,7 +59,7 @@ import DevImg from '@/components/Other/DevImg/DevImg';
 import ProfessionalBadge from '@/components/Other/ProfessionalBadge/ProfessionalBadge';
 import Socials from '@/components/Other/Socials/Socials';
 import { Button } from '@/components/Other/UI/button';
-import { useTranslation } from 'next-i18next';
+import { useTranslation } from 'next-i18next/pages';
 
 const InitialHome = () => {
   const { t } = useTranslation('common');

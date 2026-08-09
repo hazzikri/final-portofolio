@@ -4,7 +4,7 @@ import { Toaster } from "sonner";
 import Layout from "@/components/Other/Layout/Layout";
 import "@/styles/globals.css";
 
-import { appWithTranslation } from 'next-i18next';
+import { appWithTranslation } from 'next-i18next/pages';
 
 function App({ Component, pageProps }: AppProps) {
   return (

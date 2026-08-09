@@ -9,7 +9,7 @@ import { RiBriefcaseFill, RiGraduationCapFill } from "react-icons/ri";
 
 import Icon from "@/components/Other/Icon/Icon";
 import { infoData, qualificationData, skillsData } from "@/data/about";
-import { useTranslation } from "next-i18next";
+import { useTranslation } from "next-i18next/pages";
 
 const About = () => {
   const { t } = useTranslation('common');
