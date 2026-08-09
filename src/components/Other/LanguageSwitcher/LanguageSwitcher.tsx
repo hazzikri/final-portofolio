@@ -1,21 +1,22 @@
 import { useRouter } from 'next/router';
-import { useTranslation } from 'next-i18next/pages';
+import { useI18n } from '@/lib/i18n';
 
 const LanguageSwitcher = () => {
-  const router = useRouter();
-  const { i18n } = useTranslation();
+  const { locale, setLocale, t } = useI18n();
 
-  const toggleLanguage = () => {
-    const newLocale = router.locale === 'en' ? 'id' : 'en';
-    router.push(router.pathname, router.asPath, { locale: newLocale });
+  const toggle = () => {
+    setLocale(locale === 'en' ? 'id' : 'en');
   };
 
   return (
     <button
-      onClick={toggleLanguage}
-      className="px-3 py-1 rounded-full border border-primary text-primary hover:bg-primary hover:text-white transition-colors duration-300 font-semibold text-sm mr-4"
+      onClick={toggle}
+      aria-label="Switch language"
+      className="relative group px-3 py-1.5 rounded-full border border-primary/60 text-primary hover:bg-primary hover:text-white transition-all duration-300 font-bold text-xs tracking-widest uppercase"
     >
-      {router.locale === 'en' ? 'EN' : 'ID'}
+      <span className="transition-opacity duration-200">
+        {locale === 'en' ? '🇮🇩 ID' : '🇺🇸 EN'}
+      </span>
     </button>
   );
 };

@@ -3,16 +3,17 @@ import { Toaster } from "sonner";
 
 import Layout from "@/components/Other/Layout/Layout";
 import "@/styles/globals.css";
-
-import { appWithTranslation } from 'next-i18next/pages';
+import { I18nProvider } from "@/lib/i18n";
 
 function App({ Component, pageProps }: AppProps) {
   return (
-    <Layout>
-      <Component {...pageProps} />
-      <Toaster />
-    </Layout>
-  )
+    <I18nProvider>
+      <Layout>
+        <Component {...pageProps} />
+        <Toaster />
+      </Layout>
+    </I18nProvider>
+  );
 }
 
-export default appWithTranslation(App);
+export default App;

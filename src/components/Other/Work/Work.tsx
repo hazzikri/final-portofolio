@@ -25,9 +25,10 @@ import { Button } from "@/components/Other/UI/button";
 import { workData } from "@/data/work";
 import {
   RiArrowRightLine,
-  RiCodeBoxLine,
-  RiDatabase2Line,
+  RiShieldLine,
+  RiCloudLine,
 } from "react-icons/ri";
+import { useI18n } from "@/lib/i18n";
 
 interface GitHubProject {
   github: string;
@@ -41,6 +42,7 @@ interface GitHubProject {
 }
 
 const Work = () => {
+  const { t } = useI18n();
   const controls = useAnimation();
   const { ref, inView } = useInView({
     threshold: 0.2,
@@ -52,13 +54,12 @@ const Work = () => {
   const [highlightedProjects, setHighlightedProjects] = useState<any[]>([]);
   const [isLoading, setIsLoading] = useState(true);
 
-  // Função para carregar projetos destacados (hardcoded + projetos com tag "highlight")
+  // Load highlighted projects (hardcoded + GitHub tagged 'highlight')
   const loadHighlightedProjects = async () => {
     try {
       setIsLoading(true);
 
-      // Usar o nome de usuário GitHub das variáveis de ambiente ou valor padrão
-      const username = process.env.NEXT_PUBLIC_GITHUB_USERNAME || "adamsnows";
+      const username = process.env.NEXT_PUBLIC_GITHUB_USERNAME || "hazzikri";
 
       // Fazer chamada à API para buscar projetos do GitHub com tag "highlight"
       const response = await fetch(
@@ -68,7 +69,7 @@ const Work = () => {
       if (response.ok) {
         const githubProjects = await response.json();
 
-        // Verificar se temos um array válido
+        // Check for valid array
         if (Array.isArray(githubProjects) && githubProjects.length > 0) {
           const highlightGithubProjects = githubProjects.map(
             (project: any) => ({
@@ -78,11 +79,11 @@ const Work = () => {
             })
           );
 
-          // Combinar projetos hardcoded com os projetos destacados do GitHub
+          // Combine hardcoded with highlighted GitHub projects
           const combined = [...workData, ...highlightGithubProjects];
           setHighlightedProjects(combined);
         } else {
-          // Se não recebemos projetos ou array vazio, usar apenas hardcoded
+          // Fallback to hardcoded only
           setHighlightedProjects(workData);
         }
       } else if (response.status === 429) {
@@ -103,14 +104,14 @@ const Work = () => {
       }
     } catch (error) {
       console.error("Error loading highlighted projects:", error);
-      // Fallback para apenas os projetos hardcoded
+      // Fallback to hardcoded only
       setHighlightedProjects(workData);
     } finally {
       setIsLoading(false);
     }
   };
 
-  // Função para inferir linguagem a partir das tags
+  // Infer language from repo topics
   const inferLanguageFromTags = (tags: string[]): string | undefined => {
     if (tags.includes("typescript")) return "typescript";
     if (tags.includes("javascript")) return "javascript";
@@ -188,14 +189,10 @@ const Work = () => {
             ref={titleRef}
             className="section-title mb-4 bg-gradient-to-r from-primary via-secondary to-primary bg-clip-text text-transparent bg-300%"
           >
-            LATEST PROJECTS
+            {t('work_title')}
           </h2>
           <p className="text-justify text-sm mb-8 leading-relaxed lg:mt-20 ">
-            Each project reflects a commitment to{" "}
-            <span className="text-primary font-medium">innovation</span>,{" "}
-            <span className="text-primary font-medium">efficiency</span> and an
-            exceptional user experience, demonstrating comprehensive skills and
-            a deep understanding of modern development needs.
+            {t('work_desc')}
           </p>
 
           <div className="mb-8 w-full">
@@ -204,12 +201,11 @@ const Work = () => {
                 variants={fadeInUp}
                 className="flex items-start py-4 p-3 rounded-lg border border-white/10 bg-white/5 backdrop-blur-sm"
               >
-                <RiCodeBoxLine className="text-primary text-xl mt-1 mr-1 w-20" />
+                <RiShieldLine className="text-primary text-xl mt-1 mr-1 w-20" />
                 <div>
-                  <h3 className="font-medium mb-1">Front-End Expertise</h3>
+                  <h3 className="font-medium mb-1">{t('work_devsecops')}</h3>
                   <p className="text-xs text-white/70">
-                    Advanced interfaces with React, Next.js and sophisticated
-                    animations
+                    {t('work_devsecops_desc')}
                   </p>
                 </div>
               </motion.div>
@@ -218,12 +214,11 @@ const Work = () => {
                 variants={fadeInUp}
                 className="flex items-start p-3 rounded-lg border border-white/10 bg-white/5 backdrop-blur-sm"
               >
-                <RiDatabase2Line className="text-primary text-xl mt-1 mr-1 w-20" />
+                <RiCloudLine className="text-primary text-xl mt-1 mr-1 w-20" />
                 <div>
-                  <h3 className="font-medium mb-1">Robust Back-End</h3>
+                  <h3 className="font-medium mb-1">{t('work_cloud')}</h3>
                   <p className="text-xs text-white/70">
-                    Efficient APIs, optimized databases and scalable
-                    architecture
+                    {t('work_cloud_desc')}
                   </p>
                 </div>
               </motion.div>
@@ -236,7 +231,7 @@ const Work = () => {
             aria-label="projects"
           >
             <Button className="gap-x-2 text-white" variant="outline">
-              EXPLORE ALL PROJECTS{" "}
+              {t('work_explore')}{" "}
               <RiArrowRightLine className="transition-transform group-hover:translate-x-1" />
             </Button>
           </Link>

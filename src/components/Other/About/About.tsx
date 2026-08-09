@@ -9,10 +9,10 @@ import { RiBriefcaseFill, RiGraduationCapFill } from "react-icons/ri";
 
 import Icon from "@/components/Other/Icon/Icon";
 import { infoData, qualificationData, skillsData } from "@/data/about";
-import { useTranslation } from "next-i18next/pages";
+import { useI18n } from "@/lib/i18n";
 
 const About = () => {
-  const { t } = useTranslation('common');
+  const { t } = useI18n();
   const getData = (arr: any, title: any) => {
     return arr.find((item: any) => item.title === title);
   };
@@ -21,7 +21,7 @@ const About = () => {
     <section className="xl:h-fit pb-12 xl:pb-10">
       <div className="container mx-auto">
         <h2
-          className="section-title mb-8 xl:mb-16 text-center
+          className="section-title mb-8 xl:mb-16 text-center mx-auto"
         >
           {t('about_title')}
         </h2>

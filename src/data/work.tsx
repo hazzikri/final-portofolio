@@ -1,32 +1,42 @@
 export const workData = [
   {
-    image: "/assets/project-ai.jpg",
+    image: "/projects/smvflow.png",
     category: "DevSecOps",
-    name: "Automated Security CI/CD Pipeline",
+    name: "Secure CI/CD Pipeline",
     description:
-      "A complete CI/CD workflow integrating Trivy for container scanning and Gitleaks for secret detection. Implemented build-break mechanisms to prevent critical vulnerabilities from reaching production.",
-    link: "https://github.com/hazzikri/final-portofolio",
+      "GitHub Actions pipeline with Trivy container scanning and Gitleaks secret detection. Includes build-break gates for CRITICAL/HIGH vulnerabilities.",
+    link: "https://portfolio-app-enqqj6v7kq-uc.a.run.app",
     github: "https://github.com/hazzikri/final-portofolio",
-    language: "typescript",
-  },
-  {
-    image: "/assets/project-cloud.jpg",
-    category: "Cloud Infrastructure",
-    name: "Kubernetes Production Hardening",
-    description:
-      "Secured a production-grade Kubernetes cluster using network policies, RBAC, and automated pod scheduling. Deployed centralized observability using the ELK stack and Prometheus/Grafana.",
-    link: "#",
-    github: "#",
     language: "python",
   },
   {
-    image: "/assets/project-ecommerce.jpg",
+    image: "/projects/smvzap.png",
     category: "Cloud Infrastructure",
-    name: "Hybrid Cloud Migration Strategy",
+    name: "Kubernetes Hardening",
     description:
-      "Successfully led the migration of legacy on-premises servers to a scalable hybrid cloud architecture, reducing overall system downtime by 25% and implementing robust disaster recovery.",
-    link: "#",
-    github: "#",
-    language: "javascript",
+      "Hardened a production Kubernetes cluster with RBAC, network policies, and Prometheus/Grafana observability for SLA compliance.",
+    link: "https://github.com/hazzikri",
+    github: "https://github.com/hazzikri",
+    language: "python",
+  },
+  {
+    image: "/projects/gastrobox.png",
+    category: "Cloud Infrastructure",
+    name: "Hybrid Cloud Migration",
+    description:
+      "End-to-end migration from legacy on-premises servers to hybrid AWS/GCP cloud. Reduced downtime by 25% with automated disaster recovery.",
+    link: "https://github.com/hazzikri",
+    github: "https://github.com/hazzikri",
+    language: "python",
+  },
+  {
+    image: "/projects/maestria.png",
+    category: "DevSecOps",
+    name: "Azure DevOps Pipeline",
+    description:
+      "Multi-stage enterprise CI/CD pipeline on Azure DevOps deploying to Kubernetes and IIS with Microsoft Defender for DevOps integration.",
+    link: "https://github.com/hazzikri",
+    github: "https://github.com/hazzikri",
+    language: "python",
   },
 ];

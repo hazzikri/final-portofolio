@@ -3,10 +3,6 @@ const nextConfig = {
   reactStrictMode: true,
   swcMinify: true,
   output: "standalone",
-  i18n: {
-    defaultLocale: "en",
-    locales: ["en", "id"],
-  },
   poweredByHeader: false,
   experimental: {
     optimizeCss: false,

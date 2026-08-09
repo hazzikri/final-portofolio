@@ -13,37 +13,34 @@ import {
 import { highlightTechArray } from './syntax-highlighter';
 
 const techStackData = [
-  { name: 'React', category: 'frontend', featured: true },
-  { name: 'Next.js', category: 'frontend', featured: true },
-  { name: 'TypeScript', category: 'language', featured: true },
-  { name: 'Node.js', category: 'backend', featured: true },
-  { name: 'Git', category: 'tools', featured: false },
-  { name: 'GitHub', category: 'tools', featured: false },
-  { name: 'GitLab', category: 'tools', featured: false },
+  // Cloud Platforms
+  { name: 'AWS', category: 'cloud', featured: true },
+  { name: 'GCP', category: 'cloud', featured: true },
+  { name: 'Azure', category: 'cloud', featured: true },
+  // Container & Orchestration
+  { name: 'Docker', category: 'devops', featured: true },
+  { name: 'Kubernetes', category: 'devops', featured: true },
+  // CI/CD
+  { name: 'GitHub Actions', category: 'ci-cd', featured: true },
+  { name: 'Azure DevOps', category: 'ci-cd', featured: true },
+  { name: 'GitLab CI', category: 'ci-cd', featured: false },
+  // Security Tools
+  { name: 'Trivy', category: 'security', featured: false },
+  { name: 'Gitleaks', category: 'security', featured: false },
+  { name: 'Defender for DevOps', category: 'security', featured: false },
+  // IaC & Scripting
+  { name: 'Terraform', category: 'iac', featured: false },
   { name: 'Python', category: 'language', featured: true },
-  { name: 'GraphQL', category: 'backend', featured: false },
-  { name: 'Tailwind', category: 'frontend', featured: false },
-  { name: 'Sass', category: 'frontend', featured: false },
-  { name: 'FastAPI', category: 'backend', featured: false },
-  { name: 'Django', category: 'backend', featured: false },
-  { name: 'Express', category: 'backend', featured: false },
-  { name: 'NestJS', category: 'backend', featured: false },
-  { name: 'Vue', category: 'frontend', featured: false },
-  { name: 'Docker', category: 'devops', featured: false },
-  { name: 'Figma', category: 'design', featured: false },
-  { name: 'Jest', category: 'testing', featured: false },
+  { name: 'Bash', category: 'language', featured: false },
+  // Monitoring
+  { name: 'Prometheus', category: 'monitoring', featured: false },
+  { name: 'Grafana', category: 'monitoring', featured: false },
+  { name: 'CloudWatch', category: 'monitoring', featured: false },
+  // OS & Infra
   { name: 'Linux', category: 'os', featured: false },
-  { name: 'Postman', category: 'tools', featured: false },
-  { name: 'Insomnia', category: 'tools', featured: false },
-  { name: 'Figma', category: 'tools', featured: false },
-  { name: 'Vercel', category: 'hosting', featured: false },
-  { name: 'Vite', category: 'frontend', featured: false },
-  { name: 'Bootstrap', category: 'frontend', featured: false },
-  { name: 'MongoDB', category: 'database', featured: false },
-  { name: 'PostgreSQL', category: 'database', featured: false },
-  { name: 'AWS', category: 'cloud', featured: false },
-  { name: 'GCP', category: 'cloud', featured: false },
-  { name: 'GitHub Actions', category: 'ci-cd', featured: false },
+  { name: 'Nginx', category: 'tools', featured: false },
+  { name: 'Git', category: 'tools', featured: false },
+  { name: 'Ansible', category: 'iac', featured: false },
 ];
 
 import {
@@ -59,10 +56,10 @@ import DevImg from '@/components/Other/DevImg/DevImg';
 import ProfessionalBadge from '@/components/Other/ProfessionalBadge/ProfessionalBadge';
 import Socials from '@/components/Other/Socials/Socials';
 import { Button } from '@/components/Other/UI/button';
-import { useTranslation } from 'next-i18next/pages';
+import { useI18n } from '@/lib/i18n';
 
 const InitialHome = () => {
-  const { t } = useTranslation('common');
+  const { t } = useI18n();
   const titleRef = useRef<HTMLHeadingElement>(null);
   const codeBlockRef = useRef<HTMLPreElement>(null);
   const [techStackExpanded, setTechStackExpanded] = useState(false);
@@ -101,35 +98,36 @@ const InitialHome = () => {
     }, {} as Record<string, string[]>);
 
     const skillsObject = {
-      frontend: techByCategory.frontend || [],
-      backend: techByCategory.backend || [],
-      database: techByCategory.database || [],
-      devOps: [
-        ...(techByCategory.devops || []),
-        ...(techByCategory.cloud || []),
-        ...(techByCategory['ci-cd'] || []),
-      ],
-      tools: techByCategory.tools || [],
+      cloud: techByCategory.cloud || [],
+      devOps: techByCategory.devops || [],
+      'ci-cd': techByCategory['ci-cd'] || [],
+      security: techByCategory.security || [],
+      iac: techByCategory.iac || [],
+      monitoring: techByCategory.monitoring || [],
+      language: techByCategory.language || [],
     };
 
-    return `<span style="color:#6A9955">// Fullstack developer with diverse skills</span>
-<span style="color:#569CD6">const</span> developer = {
+    return `<span style="color:#6A9955">// Mid-Level DevSecOps Engineer</span>
+<span style="color:#569CD6">const</span> engineer = {
   <span style="color:#9CDCFE">name</span>: <span style="color:#CE9178">'HAFIDZ AZZIKRI'</span>,
   <span style="color:#9CDCFE">skills</span>: {
-    <span style="color:#9CDCFE">frontend</span>: ${highlightTechArray(
-      skillsObject.frontend,
-    )},
-    <span style="color:#9CDCFE">backend</span>: ${highlightTechArray(
-      skillsObject.backend,
-    )},
-    <span style="color:#9CDCFE">database</span>: ${highlightTechArray(
-      skillsObject.database,
+    <span style="color:#9CDCFE">cloud</span>: ${highlightTechArray(
+      skillsObject.cloud,
     )},
     <span style="color:#9CDCFE">devOps</span>: ${highlightTechArray(
       skillsObject.devOps,
     )},
-    <span style="color:#9CDCFE">tools</span>: ${highlightTechArray(
-      skillsObject.tools,
+    <span style="color:#9CDCFE">ci_cd</span>: ${highlightTechArray(
+      skillsObject['ci-cd'],
+    )},
+    <span style="color:#9CDCFE">security</span>: ${highlightTechArray(
+      skillsObject.security,
+    )},
+    <span style="color:#9CDCFE">iac</span>: ${highlightTechArray(
+      skillsObject.iac,
+    )},
+    <span style="color:#9CDCFE">monitoring</span>: ${highlightTechArray(
+      skillsObject.monitoring,
     )}
   },
   <span style="color:#9CDCFE">createSolution</span>: (<span style="color:#4FC1FF">problem</span>) <span style="color:#569CD6">=></span> {
