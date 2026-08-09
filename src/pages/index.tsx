@@ -1,6 +1,6 @@
 import Seo from "@/components/Other/Seo";
 import Home from "@/components/Templates/Home/Home";
-import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
+import { serverSideTranslations } from 'next-i18next/pages/serverSideTranslations';
 
 const HomePage = () => {
   return (

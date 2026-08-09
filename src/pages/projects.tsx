@@ -1,7 +1,7 @@
 import SmoothScrollSection from "@/components/Animations/SmoothScrollSection";
 import Seo from "@/components/Other/Seo";
 import Projects from "@/components/Templates/Projects/Projects";
-import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
+import { serverSideTranslations } from 'next-i18next/pages/serverSideTranslations';
 
 const ProjectsPage = () => {
   return (

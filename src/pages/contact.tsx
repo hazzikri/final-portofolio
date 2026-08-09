@@ -1,6 +1,6 @@
 import Seo from "@/components/Other/Seo";
 import Contact from "@/components/Templates/Contact/Contact";
-import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
+import { serverSideTranslations } from 'next-i18next/pages/serverSideTranslations';
 
 const ContactPage = () => {
   return (
