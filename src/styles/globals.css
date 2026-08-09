@@ -1,0 +1,232 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+  body::-webkit-scrollbar {
+    width: 18px;
+  }
+
+  body::-webkit-scrollbar-track {
+    @apply bg-senary;
+  }
+
+  body::-webkit-scrollbar-thumb {
+    @apply bg-primary rounded-[6px] border-2 border-senary border-solid;
+  }
+  .min-description-height {
+    @apply min-h-[200px];
+  }
+}
+
+.h1 {
+  @apply text-6xl xl:text-[72px] xl:leading-[80px]
+  tracking-[-2px] font-bold;
+}
+
+.h2 {
+  @apply text-4xl font-bold;
+}
+
+.h3 {
+  @apply text-3xl font-bold;
+}
+
+.h4 {
+  @apply text-[22px] font-semibold;
+}
+
+.subtitle {
+  @apply text-muted-foreground text-lg mb-8 font-light;
+}
+
+.section-title {
+  @apply text-3xl sm:text-[2.7rem] font-bold relative w-max flex items-center
+  justify-between gap-x-3 uppercase text-quinary;
+}
+
+.badge {
+  @apply z-10 w-[200px] h-[68px] bg-quaternary backdrop-blur-[44px] shadow-2xl
+  p-4 rounded-[6px] flex items-center gap-x-4;
+}
+
+.swiper-horizontal
+  > .section-pagination-bullets
+  .swiper-horizontal
+  .swiper-pagination-bullet,
+.swiper-pagination-horizontal.swiper-pagination-bullets
+  .swiper-pagination-bullet {
+  @apply bg-primary opacity-70 transition-all;
+}
+
+.swiper-pagination-bullet-active {
+  @apply opacity-100 scale-125 bg-primary !important;
+  transform-origin: center;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.swiper-pagination-bullet {
+  @apply backdrop-blur-md mx-1;
+  transition: all 0.3s ease;
+}
+
+.swiper-button-prev,
+.swiper-button-next {
+  @apply text-primary opacity-60 transition-all duration-300 !important;
+}
+
+.swiper-button-prev {
+  @apply left-2 md:left-4 !important;
+}
+
+.swiper-button-next {
+  @apply right-2 md:right-4 !important;
+}
+
+.swiper-button-prev:hover,
+.swiper-button-next:hover {
+  @apply opacity-100 scale-110 !important;
+}
+
+.swiper.swiper-initialized.swiper-horizontal {
+  @apply flex flex-col gap-3;
+}
+
+.swiper-pagination.swiper-pagination-clickable.swiper-pagination-bullets.swiper-pagination-horizontal {
+  @apply absolute bottom-2 left-0 right-0 mx-auto w-full flex justify-center;
+}
+
+/* Novas classes de animação */
+.bg-300\% {
+  background-size: 300% 100%;
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+.animate-float {
+  animation: float 5s ease-in-out infinite;
+}
+
+@keyframes pulse-glow {
+  0%, 100% {
+    box-shadow: 0 0 15px 5px rgba(var(--primary-rgb), 0.3);
+  }
+  50% {
+    box-shadow: 0 0 25px 10px rgba(var(--primary-rgb), 0.5);
+  }
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 3s ease-in-out infinite;
+}
+
+/* Efeito de vidro para componentes */
+.glass-effect {
+  @apply bg-white/5 backdrop-blur-sm border border-white/10 rounded-lg shadow-lg;
+}
+
+/* Estilo para código */
+.code-block {
+  @apply font-mono text-xs bg-black/50 p-4 rounded overflow-auto;
+}
+
+/* Estilo para tech badges */
+.tech-badge {
+  @apply bg-white/5 border border-white/10 rounded-full px-3 py-1 text-xs inline-flex items-center gap-1;
+}
+
+/* Estilos para melhorar o Swiper */
+.swiper-slide-active {
+  transform: translateZ(0);
+  z-index: 10;
+  transition: all 0.5s ease;
+}
+
+.swiper-slide-shadow-left,
+.swiper-slide-shadow-right {
+  border-radius: 12px;
+  opacity: 0.5 !important;
+  background-image: linear-gradient(to left, rgba(122, 144, 255, 0.15), rgba(0, 0, 0, 0.1)) !important;
+}
+
+/* Animações de transição para páginas */
+.page-enter {
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.page-enter-active {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 0.3s, transform 0.3s;
+}
+
+.page-exit {
+  opacity: 1;
+}
+
+.page-exit-active {
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+/* Estilos para barra de rolagem personalizada */
+pre::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+pre::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
+}
+
+pre::-webkit-scrollbar-thumb {
+  background: rgba(122, 144, 255, 0.5);
+  border-radius: 4px;
+}
+
+pre::-webkit-scrollbar-thumb:hover {
+  background: rgba(122, 144, 255, 0.7);
+}
+
+pre::-webkit-scrollbar-corner {
+  background: transparent;
+}
+
+/* Estilos específicos para o código de exemplo */
+.code-example::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+.code-example::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 4px;
+}
+
+.code-example::-webkit-scrollbar-thumb {
+  background: linear-gradient(to bottom, rgba(122, 144, 255, 0.5), rgba(94, 234, 212, 0.5));
+  border-radius: 4px;
+  border: 2px solid transparent;
+  background-clip: padding-box;
+}
+
+.code-example::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(to bottom, rgba(122, 144, 255, 0.7), rgba(94, 234, 212, 0.7));
+  border: 2px solid transparent;
+  background-clip: padding-box;
+}
