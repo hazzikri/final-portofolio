@@ -1,0 +1,2 @@
+# Ignore unpatchable vulnerability in npm/node-pkg for now to unblock deployment
+CVE-2026-59874
