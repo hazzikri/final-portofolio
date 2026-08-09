@@ -1,13 +1,14 @@
 import SmoothScrollSection from "@/components/Animations/SmoothScrollSection";
 import Seo from "@/components/Other/Seo";
 import Projects from "@/components/Templates/Projects/Projects";
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 
 const ProjectsPage = () => {
   return (
     <>
       <Seo
-        description="Explore uma galeria de projetos inspiradores e inovadores. Cada projeto é uma demonstração do meu compromisso com a excelência técnica e a entrega de soluções sob medida para os clientes."
-        title="Projetos • Hafidz Azzikri"
+        description="Explore a gallery of inspiring and innovative DevSecOps and Cloud projects. Each project demonstrates a commitment to technical excellence, security, and scalable solutions."
+        title="Projects • Hafidz Azzikri"
       />
       <SmoothScrollSection>
         <Projects />
@@ -15,5 +16,11 @@ const ProjectsPage = () => {
     </>
   );
 };
+
+export const getStaticProps = async ({ locale }: { locale: string }) => ({
+  props: {
+    ...(await serverSideTranslations(locale, ['common'])),
+  },
+});
 
 export default ProjectsPage;

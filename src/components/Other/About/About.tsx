@@ -9,8 +9,10 @@ import { RiBriefcaseFill, RiGraduationCapFill } from "react-icons/ri";
 
 import Icon from "@/components/Other/Icon/Icon";
 import { infoData, qualificationData, skillsData } from "@/data/about";
+import { useTranslation } from "next-i18next";
 
 const About = () => {
+  const { t } = useTranslation('common');
   const getData = (arr: any, title: any) => {
     return arr.find((item: any) => item.title === title);
   };
@@ -21,7 +23,7 @@ const About = () => {
         <h2
           className="section-title mb-8 xl:mb-16 text-center
         >
-          ABOUT ME
+          {t('about_title')}
         </h2>
         <div className="flex flex-col xl:flex-row">
           <div className="hidden xl:flex flex-1 relative">
@@ -40,33 +42,26 @@ const About = () => {
                 xl:max-w[520px] xl:border border-none"
               >
                 <TabsTrigger className="w-[162px] xl:w-auto" value="personal">
-                  Personal Info
+                  {t('about_personal')}
                 </TabsTrigger>
                 <TabsTrigger
                   className="w-[162px] xl:w-auto"
                   value="qualifications"
                 >
-                  Qualifications
+                  {t('about_qualifications')}
                 </TabsTrigger>
                 <TabsTrigger className="w-[162px] xl:w-auto" value="skills">
-                  Skills
+                  {t('about_skills')}
                 </TabsTrigger>
               </TabsList>
               <div className="text-lg mt-12 xl:mt-8">
                 <TabsContent value="personal">
                   <div className="text-center xl:text-left">
                     <h3 className="h3 mb-4">
-                      Quality service for over {new Date().getFullYear() - 2020}{" "}
-                      years
+                      {t('about_quality')}
                     </h3>
                     <p className="subtitle max-w-xl mx-auto xl:mx-0">
-                      Driven by an insatiable curiosity, I dedicate myself to
-                      the craft of coding, engaging in new projects and
-                      continuously seeking to improve my skills. My passion for
-                      continuous learning drives me to explore new technologies
-                      and techniques, ensuring that I am always ahead of trends
-                      and prepared to face any challenge in software
-                      development.
+                      {t('about_desc')}
                     </p>
                     <div className="grid xl:grid-cols-2 gap-4 mb-12">
                       {infoData.map((item, index) => {
@@ -84,9 +79,9 @@ const About = () => {
                     </div>
 
                     <div className="flex flex-col gap-y-2">
-                      <div className="text-primary">Languages</div>
+                      <div className="text-primary">{t('about_languages')}</div>
                       <div className="border-b border-border"></div>
-                      <div>Portuguese (Native), English (Advanced) </div>
+                      <div>{t('about_languages_val')}</div>
                     </div>
                   </div>
                 </TabsContent>
@@ -94,14 +89,14 @@ const About = () => {
                 <TabsContent value="qualifications">
                   <div>
                     <h3 className="h3 mb-8 text-center xl:text-left">
-                      My qualifications
+                      {t('about_my_qualifications')}
                     </h3>
                     <div className="grid md:grid-cols-2 gap-y-8">
                       <div className="flex flex-col gap-y-6">
                         <div className="flex gap-x-4 items-center text-[22px] text-primary">
                           <RiBriefcaseFill />
                           <h4 className="capitalize font-medium">
-                            {getData(qualificationData, "experience").title}
+                            {t('about_experience')}
                           </h4>
                         </div>
                         <div className="flex flex-col gap-y-8">
@@ -154,7 +149,7 @@ const About = () => {
                         <div className="flex gap-x-4 items-center text-[22px] text-primary">
                           <RiGraduationCapFill size={28} />
                           <h4 className="capitalize font-medium">
-                            {getData(qualificationData, "education").title}
+                            {t('about_education')}
                           </h4>
                         </div>
                         <div className="flex flex-col gap-y-8">
@@ -208,10 +203,10 @@ const About = () => {
                 </TabsContent>
                 <TabsContent value="skills">
                   <div className="text-center xl:text-left">
-                    <h3 className="h3 mb-8">My Skill Set</h3>
+                    <h3 className="h3 mb-8">{t('about_my_skills')}</h3>
                     <div className="mb-16">
                       <h4 className="text-xl font-semibold mb-2">
-                        Skills
+                        {t('about_skills')}
                       </h4>
                       <div className="border-b border-border mb-4"></div>
                       <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
@@ -239,7 +234,7 @@ const About = () => {
                       </div>
                     </div>
                     <h4 className="text-xl font-semibold mb-2 xl:text-left">
-                      Tools
+                      {t('about_tools')}
                     </h4>
                     <div className="border-b border-border mb-4"></div>
                     <div className="flex gap-x-8 justify-center xl:justify-start">

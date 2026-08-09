@@ -1,12 +1,14 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { motion } from "framer-motion";
+import { useTranslation } from "next-i18next";
 
 import { links } from "@/data/nav";
 import { NavInterface } from "@/interfaces/NavInterface";
 
 const Nav = ({ containerStyles, linkStyles, underlineStyles }: NavInterface) => {
   const path = usePathname();
+  const { t } = useTranslation('common');
 
   return (
     <nav className={`${containerStyles}`}>
@@ -16,7 +18,7 @@ const Nav = ({ containerStyles, linkStyles, underlineStyles }: NavInterface) => 
             href={link.path}
             key={index}
             className={`capitalize ${linkStyles}`}
-            aria-label={link.name}
+            aria-label={t(`nav_${link.name}`)}
           >
             {link.path === path && (
               <motion.span
@@ -27,7 +29,7 @@ const Nav = ({ containerStyles, linkStyles, underlineStyles }: NavInterface) => 
                 className={`${underlineStyles}`}
               />
             )}
-            {link.name}
+            {t(`nav_${link.name}`)}
           </Link>
         );
       })}

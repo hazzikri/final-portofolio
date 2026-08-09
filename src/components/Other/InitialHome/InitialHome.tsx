@@ -56,12 +56,13 @@ import {
 import ClientOnly from '@/components/Animations/ClientOnly';
 import FloatingElement from '@/components/Animations/FloatingElement';
 import DevImg from '@/components/Other/DevImg/DevImg';
-import { StackIcon } from '@/components/Other/ProfessionalBadge/Icons';
 import ProfessionalBadge from '@/components/Other/ProfessionalBadge/ProfessionalBadge';
 import Socials from '@/components/Other/Socials/Socials';
 import { Button } from '@/components/Other/UI/button';
+import { useTranslation } from 'next-i18next';
 
 const InitialHome = () => {
+  const { t } = useTranslation('common');
   const titleRef = useRef<HTMLHeadingElement>(null);
   const codeBlockRef = useRef<HTMLPreElement>(null);
   const [techStackExpanded, setTechStackExpanded] = useState(false);
@@ -282,38 +283,20 @@ const InitialHome = () => {
           >
             <motion.div
               variants={fadeInUp}
-              className="text-sm uppercase font-semibold
-              mb-6 text-primary tracking-[4px] flex justify-center xl:justify-start"
+              className="text-sm uppercase font-semibold mb-4 text-primary tracking-[4px]"
             >
-              <ProfessionalBadge
-                text="Full Stack Developer"
-                icon={<StackIcon size={14} />}
-                animated={true}
-                gradient={true}
-              />
+              {t('hero_role')}
             </motion.div>
 
-            <h1
-              ref={titleRef}
-              className="text-[45px] xl:text-[60px] font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text"
-            >
-              HAFIDZ AZZIKRI
+            <h1 ref={titleRef} className="h1 mb-4 hidden md:block lg:block">
+              {t('hero_greeting')}
             </h1>
-
-            <motion.p
-              variants={fadeInDown}
-              className="max-w-[500px] mx-auto xl:mx-0 text-sm mb-5 leading-relaxed text-justify"
-            >
-              <span className="text-primary font-semibold">FullStack</span>{' '}
-              development with a pronounced focus and enthusiasm for creating
-              powerful and innovative solutions. My experience covers both{' '}
-              <span className="text-primary font-semibold">front-end</span> and{' '}
-              <span className="text-primary font-semibold">back-end</span>,
-              allowing me to build complete and integrated applications. I am
-              constantly looking for new challenges that allow me to learn and
-              apply the latest technologies, ensuring the delivery of robust,
-              scalable, and secure products.
-            </motion.p>
+            <h1 className="h1 mb-4 md:hidden lg:hidden">
+              {t('hero_greeting')}
+            </h1>
+            <p className="subtitle max-w-[490px] mx-auto xl:mx-0">
+              {t('hero_desc')}
+            </p>
 
             <motion.div
               variants={fadeInDown}
@@ -321,25 +304,20 @@ const InitialHome = () => {
               mx-auto xl:mx-0 mb-8"
             >
               <Link href="/contact" aria-label="contact">
-                <Button className="gap-x-2 group">
-                  Contact me{' '}
-                  <RiMailSendFill
-                    size={18}
-                    className="transition-transform group-hover:translate-x-1"
-                  />
+                <Button className="gap-x-2 w-full lg:w-44 md:w-44 transition-all">
+                  {t('hero_contact_btn')} <RiMailSendFill size={18} />
                 </Button>
               </Link>
               <Link
+                href="/Hafidz_Azzikri.pdf"
                 target="_blank"
-                href="https://drive.google.com/file/d/1-Fc_jtaHOwTODyT30z70gX7ZqK5n94vP/view?usp=sharing"
-                aria-label="cv"
+                className="w-full lg:w-auto md:w-auto"
               >
-                <Button variant="secondary" className="gap-x-2 group">
-                  Download CV
-                  <RiDownloadFill
-                    size={18}
-                    className="transition-transform group-hover:translate-y-1"
-                  />
+                <Button
+                  variant="secondary"
+                  className="gap-x-2 w-full lg:w-44 md:w-44"
+                >
+                  {t('hero_download_cv')} <RiDownloadFill size={18} />
                 </Button>
               </Link>
             </motion.div>

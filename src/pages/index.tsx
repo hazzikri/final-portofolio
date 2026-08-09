@@ -1,5 +1,6 @@
 import Seo from "@/components/Other/Seo";
 import Home from "@/components/Templates/Home/Home";
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 
 const HomePage = () => {
   return (
@@ -12,5 +13,11 @@ const HomePage = () => {
     </>
   );
 };
+
+export const getStaticProps = async ({ locale }: { locale: string }) => ({
+  props: {
+    ...(await serverSideTranslations(locale, ['common'])),
+  },
+});
 
 export default HomePage;

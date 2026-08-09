@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import Logo from "@/components/Other/Logo/Logo";
 import { MobileNav } from "@/components/Other/Nav/MobileNav";
 import Nav from "@/components/Other/Nav/Nav";
+import LanguageSwitcher from "@/components/Other/LanguageSwitcher/LanguageSwitcher";
 
 const Header = () => {
   const [header, setHeader] = useState(false);
@@ -28,6 +29,7 @@ const Header = () => {
         <div className="flex justify-between items-center">
           <Logo />
           <div className="flex items-center gap-x-6">
+            <LanguageSwitcher />
             <Nav
               containerStyles="hidden xl:flex gap-x-8 items-center"
               linkStyles="relative hover:text-primary transition-all"
